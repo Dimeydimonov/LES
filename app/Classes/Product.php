@@ -2,6 +2,9 @@
 
 	namespace App\Classes;
 
+	/**
+	 * @method static with(string $string)
+	 */
 	abstract class Product
 	{
 		private mixed $name;
