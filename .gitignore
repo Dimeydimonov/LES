@@ -22,3 +22,7 @@ test-project/.env
 Homestead.json
 Homestead.yaml
 Thumbs.db
+/docker/mysql/
+.env
+/vendor/
+/node_modules/
