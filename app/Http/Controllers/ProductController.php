@@ -12,6 +12,5 @@
 			$products = Product::with('products')->get();
 			return view('Product.Product', compact('title', 'products'));
 		}
-1
 
 	}

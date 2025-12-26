@@ -3,7 +3,7 @@
 	@include('layouts.header_sector')
 	<div class="content">
 		<div class="container">
-			@include('layouts.left_menu_sector')
+			@include('layouts.inc.left_menu_sector')
 			<div class="content-right">
 				@include('layouts.right_sector')
 				@include('layouts.product_sector')

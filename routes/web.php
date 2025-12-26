@@ -2,7 +2,7 @@
 
 	use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-
+	use App\Models\Category;
 
 Route::get('/', function () { return view('index'); })->name('index');
 Route::get('/home', function () { return view('index'); })->name('home');
@@ -14,3 +14,4 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
