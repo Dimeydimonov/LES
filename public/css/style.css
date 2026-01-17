@@ -451,3 +451,35 @@ footer {
 
 
 
+
+
+
+ul.categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.categories li {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+ul.categories li ul {
+    display: none;
+    list-style: none;
+    padding-left: 15px;
+}
+
+ul.categories li:hover > ul {
+    display: block;
+}
+
+ul.categories li ul li {
+    background: #ffffff;
+    font-size: 0.9em;
+}
+

@@ -15,7 +15,7 @@
 
 		public function init(): void
 		{
-			// базовая инициализация (если нужна)
+			// базовая инициализация если нужна
 		}
 
 		abstract public function run(): string;
