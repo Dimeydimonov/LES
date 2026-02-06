@@ -11,12 +11,16 @@
 			<h1><a href="#"><span>Grocery</span> Store <i class="fa fa-shopping-basket"></i></a></h1>
 		</div>
 
+
+
 		<div class="header-search">
-			<form action="#" method="post">
-				<input type="search" placeholder="{{ __('header.menu3') }}" required="">
+			<form action="{{route('search')}}" method="get">
+				<input type="search" name="query" placeholder="{{ __('header.menu3') }}" required="">
 				<button type="submit"><i class="fa fa-search"></i></button>
 			</form>
 		</div>
+
+
 
 		@auth
 			<form method="POST" action="{{ route('logout') }}" class="d-inline">

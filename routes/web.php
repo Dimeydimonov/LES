@@ -15,4 +15,5 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/search', [ProductController::class, 'search'])->name('search');
 
