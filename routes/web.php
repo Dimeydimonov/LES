@@ -2,10 +2,11 @@
 
 	use App\Http\Controllers\AuthController;
 	use App\Http\Controllers\LanguageController;
+	use App\Http\Controllers\ProductController;
 	use Illuminate\Support\Facades\Route;
 
-	Route::get('/', function () { return view('index'); })->name('index');
-Route::get('/home', function () { return view('index'); })->name('home');
+	Route::get('/', [ProductController::class, 'product'])->name('index');
+	Route::get('/home', [ProductController::class, 'product'])->name('home');
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
 

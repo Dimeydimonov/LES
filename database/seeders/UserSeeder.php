@@ -10,11 +10,11 @@
 	{
 		public function run(): void
 		{
-//			User::create([
-//				'name' => 'Admin',
-//				'email' => 'admin@example.com',
-//				'password' => Hash::make('password'),
-//			]);
+			User::create([
+				'name' => 'Admin',
+				'email' => 'admin@example.com',
+				'password' => Hash::make('password'),
+			]);
 
 
 			 User::factory(10)->create();
