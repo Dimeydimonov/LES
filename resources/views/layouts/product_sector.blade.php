@@ -4,6 +4,7 @@
 	@if(isset($products) && $products->count())
 		@foreach($products as $product)
 			<div class="product-card">
+				<a href="{{ route('product.show', $product->id) }}">
 				@if($product->img)
 					<img src="{{ asset($product->img) }}" alt="{{ $product->title }}">
 				@endif
