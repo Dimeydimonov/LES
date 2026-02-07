@@ -16,6 +16,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+@if(session('success'))
+	<div class="alert alert-success">
+		{{ session('success') }}
+	</div>
+@endif
+
+@if(session('error'))
+	<div class="alert alert-danger">
+		{{ session('error') }}
+	</div>
+@endif
+
 @yield('content')
 
 <!-- Optional JS -->
