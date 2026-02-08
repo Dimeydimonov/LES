@@ -7,7 +7,7 @@
 				<ul class="w3_footer_grid_list">
 					<li><a href="#">Events</a></li>
 					<li><a href="#">About Us</a></li>
-					<li><a href="{{ route('products.index') }}">Best Deals</a></li>
+					<li><a href="{{ route("products.index") }}">Best Deals</a></li>
 					<li><a href="#">Services</a></li>
 					<li><a href="#">Short Codes</a></li>
 				</ul>
@@ -23,7 +23,7 @@
 			<div class="col-md-3 w3_footer_grid">
 				<h3>what in stores</h3>
 				<ul class="w3_footer_grid_list">
-					<li><a href="{{ route('products.index') }}">Pet Food</a></li>
+					<li><a href="{{ route("products.index") }}">Pet Food</a></li>
 					<li><a href="#">Frozen Snacks</a></li>
 					<li><a href="#">Kitchen</a></li>
 					<li><a href="#">Branded Foods</a></li>
@@ -38,7 +38,10 @@
 						<a href="#">http://sd.ds/1389kjklf#</a>quo nulla.</span></li>
 					<li><label class="fa fa-twitter" aria-hidden="true"></label><i>02 day ago</i><span>Con numquam <a href="#">http://fd.uf/56hfg#</a>
 						eius modi tempora incidunt ut labore et
-						<a href="#">http://fd.uf/56hfg#</a>quo nulla.</span></li>
+						<a href="#">http://fd.uf/456hfg#</a>quo nulla.</span></li>
+					<li><label class="fa fa-twitter" aria-hidden="true"></label><i>03 day ago</i><span>In veritatis <a href="#">http://gj.ff/sdw32q#</a>
+						eius modi tempora incidunt ut labore et
+						<a href="#">http://gj.ff/56hfg#</a>quo nulla.</span></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -46,7 +49,7 @@
 				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
 					<div class="w3_footer_grid_bottom">
 						<h4>100% secure payments</h4>
-						<img src="images/card.png" alt=" " class="img-responsive" />
+						<img src="/images/card.png" alt=" " class="img-responsive" />
 					</div>
 				</div>
 				<div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">

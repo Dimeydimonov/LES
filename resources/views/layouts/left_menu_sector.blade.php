@@ -1,8 +1,8 @@
-@php use App\Components\MenuWidget; @endphp
 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 	<ul class="nav navbar-nav nav_1">
 		@php
-			$categories = \App\Models\Category::whereNull('parent_id')->get();
+			use App\Models\Category;
+			$categories = Category::whereNull("parent_id")->get();
 		@endphp
 		@foreach($categories as $category)
 			@if($category->children->count() > 0)

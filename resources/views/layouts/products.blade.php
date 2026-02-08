@@ -1,13 +1,13 @@
-@extends('layouts.app')
-@section('content')
-	@include('layouts.header_sector')
+@extends("layouts.app")
+@section("content")
+	@include("layouts.header_sector")
 	<div class="content">
 		<div class="container">
-			@include('layouts.left_menu_sector')
+			@include("layouts.left_menu_sector")
 			<div class="content-right">
-				@include('layouts.hot_offers_sector')
+				@include("layouts.hot_offers_sector")
 			</div>
 		</div>
 	</div>
-	@include('layouts.footer_sector')
+	@include("layouts.footer_sector")
 @endsection
