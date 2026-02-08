@@ -12,10 +12,10 @@
 		use HasFactory;
 
 		protected $fillable = ['parent_id', 'title', 'description', 'keywords'];
-		public function children() : HasMany | Category
-		{
-			return $this->hasMany(__CLASS__ , 'parent_id');
-		}
+	public function children(): HasMany
+	{
+		return $this->hasMany(__CLASS__ , 'parent_id');
+	}
 
 		public function parent() : BelongsTo
 		{

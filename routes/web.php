@@ -19,5 +19,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
-
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
