@@ -3,7 +3,7 @@
     <ul class="categories">
         @php
             MenuWidget::Widget([
-                'tpl' => 'widgets.menu-tpl',
+                'tpl' => 'layouts.widgets.menu-tpl',
             ]);
         @endphp
     </ul>

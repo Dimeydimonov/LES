@@ -5,7 +5,7 @@
 		</a>
 		@if(isset($category['childs']))
 			<ul class="submenu">
-				@include('widgets.menu-tpl', ['data' => $category['childs']])
+				@include('layouts.widgets.menu-tpl', ['data' => $category['childs']])
 			</ul>
 		@endif
 	</li>

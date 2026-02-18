@@ -1,7 +1,7 @@
 <div class='products'>
 	@if(isset($products) && $products->count())
 		@foreach($products as $product)
-			@include('layouts.product_card', ['product' => $product])
+			@include('layouts.product.product_card', ['product' => $product])
 		@endforeach
 	@else
 		<p>Товары не найдены.</p>
@@ -9,6 +9,6 @@
 </div>
 
 @if(isset($pagination))
-	@include('layouts.custom_pagination', ['pagination' => $pagination])
+	@include('layouts.footer.components.custom_pagination ', ['pagination' => $pagination])
 @endif
 

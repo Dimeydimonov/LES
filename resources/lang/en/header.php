@@ -2,7 +2,7 @@
 	return [
 		'menu1' => "Today's special Offers ! 50%",
 		'menu2' => 'Shop Now',
-		'menu3' => 'Search a product...',
+		'menu3' => 'Search a products...',
 		'menu4' => 'Login',
 		'menu5' => 'Home',
 		'menu_6' => 'About',

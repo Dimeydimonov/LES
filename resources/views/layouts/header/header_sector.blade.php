@@ -9,9 +9,40 @@
                 <input type="text" name="query" placeholder="Search a product..." >
                 <button type="submit"><i class='fa fa-search'></i></button>
             </form>
+
+
         </div>
-        <div class='cart' href="#" >View Your Cart
-        </div>
+
+
+        <noscript>
+            <a href="{{ route('cart.view.get') }}" class="btn btn-primary btn-lg">
+                <i class="fa fa-shopping-cart"></i>
+                Cart
+
+
+
+                @php
+                    $cart = session('cart', 0);
+					$cartCount = is_numeric($cart) ? (int) $cart : 0;
+                @endphp
+
+                <span class="cart-count {{ $cartCount > 0 ? 'cart-count-visible' : 'cart-count-hidden' }}">
+    {{ $cartCount }}
+</span>
+
+
+            </a>
+        </noscript>
+        <button type="button" class="btn btn-primary btn-lg cart-button-hidden" onclick="openCartModal()">
+            <i class="fa fa-shopping-cart"></i>
+            Cart
+{{--            <span class="cart-count {{ session('cart') && count(session('cart')) > null ? 'cart-count-visible' : 'cart-count-hidden' }}">{{ session('cart') ??( session('cart') < null) }}</span>--}}
+        </button>
+        <script>
+            document.querySelector('.btn-primary.btn-lg[onclick="openCartModal()"]').classList.remove('cart-button-hidden');
+        </script>
+
+
         <div class='user-menu'>
             <ul>
                 <li class='dropdown profile-details-drop'>

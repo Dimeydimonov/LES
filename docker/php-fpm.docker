@@ -5,6 +5,9 @@ RUN apt-get update && apt-get install -y \
     libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
     libonig-dev libzip-dev zip unzip git curl vim mariadb-client \
     libicu-dev \
+    ca-certificates curl gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql zip intl
 
