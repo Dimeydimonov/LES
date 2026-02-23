@@ -3,7 +3,7 @@
         <div class='special-offers'>
             <a href="">Today's special Offers !</a>
         </div>
-        
+
         <div class='search-bar'>
             <form action="{{ route('search') }}" method="get">
                 <input type="text" name="query" placeholder="Search a product..." >
@@ -18,28 +18,16 @@
             <a href="{{ route('cart.view.get') }}" class="btn btn-primary btn-lg">
                 <i class="fa fa-shopping-cart"></i>
                 Cart
-
-
-
-                @php
-                    $cart = session('cart', 0);
-					$cartCount = is_numeric($cart) ? (int) $cart : 0;
-                @endphp
-
-                <span class="cart-count {{ $cartCount > 0 ? 'cart-count-visible' : 'cart-count-hidden' }}">
-    {{ $cartCount }}
-</span>
-
-
+                <span class="cart-count {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'cart-count-visible' : 'cart-count-hidden' }}">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
             </a>
         </noscript>
-        <button type="button" class="btn btn-primary btn-lg cart-button-hidden" onclick="openCartModal()">
+        <button type="button" class="btn btn-primary btn-lg" onclick="openCartModal()" style="display: none;">
             <i class="fa fa-shopping-cart"></i>
             Cart
-{{--            <span class="cart-count {{ session('cart') && count(session('cart')) > null ? 'cart-count-visible' : 'cart-count-hidden' }}">{{ session('cart') ??( session('cart') < null) }}</span>--}}
+            <span class="cart-count" style="display: {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'inline' : 'none' }};">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
         </button>
         <script>
-            document.querySelector('.btn-primary.btn-lg[onclick="openCartModal()"]').classList.remove('cart-button-hidden');
+            document.querySelector('.btn-primary.btn-lg[onclick="openCartModal()"]').style.display = 'inline-block';
         </script>
 
 
@@ -62,7 +50,7 @@
                                     </li>
                                 @else
                                     <li><a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('login') }}">Sign Up</a></li>
+                                    <li><a href="{{ route('register') }}">Sign Up</a></li>
                                 @endauth
                             </ul>
                         </div>
@@ -70,7 +58,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <div class='contact-info'>
             <h2><a href="mailto:store@grocery.com">Contact Us</a></h2>
         </div>

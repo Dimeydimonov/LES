@@ -7,30 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-	public function index()
-	{
-		$data = app(ProductService::class)->getProducts(request());
-		$hotData = app(ProductService::class)->getHotProducts();
-
-		return view('layouts.products.products', [
-			'products' => $data['products'],
-			'hotProducts' => $hotData['products'],
-			'hotPagination' => $hotData['pagination']
-		]);
-	}
-	public function home(Request $request)
-	{
-		$data = app(ProductService::class)->getProducts($request);
-		$hotData = app(ProductService::class)->getHotProducts();
-
-		return view('home.index', [
-			'title' => 'Products',
-			'products' => $data['products'],
-			'pagination' => $data['pagination'],
-			'hotProducts' => $hotData['products'],
-			'hotPagination' => $hotData['pagination']
-		]);
-	}
     private ProductService $productService;
 
     public function __construct(ProductService $productService)
@@ -38,14 +14,25 @@ class HomeController extends Controller
         $this->productService = $productService;
     }
 
-    public function product(Request $request)
+    public function index()
     {
-        $title = 'Products';
+        $data = $this->productService->getProducts(request());
+        $hotData = $this->productService->getHotProducts();
+
+        return view('layouts.products.products', [
+            'products' => $data['products'],
+            'hotProducts' => $hotData['products'],
+            'hotPagination' => $hotData['pagination']
+        ]);
+    }
+
+    public function home(Request $request)
+    {
         $data = $this->productService->getProducts($request);
         $hotData = $this->productService->getHotProducts();
 
         return view('home.index', [
-            'title' => $title,
+            'title' => 'Products',
             'products' => $data['products'],
             'pagination' => $data['pagination'],
             'hotProducts' => $hotData['products'],

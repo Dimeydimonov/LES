@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Blade;
 		public function boot(): void
 		{
 			Blade::directive('pagination', static function ($pagination) {
-				return  "echo view('layouts.custom_pagination', ['pagination' => $pagination ] )->render()";
+				return "<?php echo view('layouts.custom_pagination', ['pagination' => $pagination ])->render(); ?>";
 			});
 		}
 	}
