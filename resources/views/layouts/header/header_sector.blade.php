@@ -19,14 +19,11 @@
                 <span class="cart-count {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'cart-count-visible' : 'cart-count-hidden' }}">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
             </a>
         </noscript>
-        <button type="button" class="btn btn-primary btn-lg" onclick="openCartModal()" style="display: none;">
+        <button type="button" class="btn btn-primary btn-lg js-cart-button" data-action="open-modal" style="display: none;">
             <div class="cart-icon"></div>
             Cart
             <span class="cart-count" style="display: {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'inline' : 'none' }};">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
         </button>
-        <script>
-            document.querySelector('.btn-primary.btn-lg[onclick="openCartModal()"]').style.display = 'inline-block';
-        </script>
 
 
         <div class='user-menu'>

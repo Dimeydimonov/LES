@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Progressive Enhancement: Mark JS as available
+    // Progressive Enhancement: Mark JS as available and show cart button
     document.querySelectorAll('.add-to-cart-form').forEach(form => {
         form.setAttribute('data-js-enhanced', 'true');
     });
+    
+    // Show cart button when JavaScript is available
+    const cartButton = document.querySelector('.js-cart-button');
+    if (cartButton) {
+        cartButton.style.display = 'inline-block';
+    }
     
     // Modal functions
     window.openCartModal = function() {
@@ -15,6 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('cartModal').classList.remove('show');
     };
 
+    // Event delegation for modal controls
+    document.addEventListener('click', function(event) {
+        const action = event.target.dataset.action;
+        
+        if (action === 'open-modal') {
+            event.preventDefault();
+            openCartModal();
+        } else if (action === 'close-modal') {
+            event.preventDefault();
+            closeCartModal();
+        }
+    });
+
     // Close modal on ESC key
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
@@ -22,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close modal on overlay click
+    // Close modal on overlay click (fallback)
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal-overlay')) {
             closeCartModal();
@@ -121,18 +140,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-////AJAX наконец-то расчехлился///////
-
+// Clean AJAX implementation
             fetch(this.action, {
                 method: 'POST',
                 body: new FormData(this),
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
                 }
-////AJAX ///////
-
-
-
             })
             .then(response => response.json())
             .then(data => {
@@ -175,16 +190,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-////AJAX наконец-то  расчехлился///////
-
+// Clean AJAX implementation
             fetch('/cart/remove', {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
                 }
             })
-                ////AJAX ///////
 
 
 
@@ -264,7 +278,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
                 }
             })
             .then(response => response.json())
