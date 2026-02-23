@@ -9,20 +9,18 @@
                 <input type="text" name="query" placeholder="Search a product..." >
                 <button type="submit"><i class='fa fa-search'></i></button>
             </form>
-
-
         </div>
 
 
         <noscript>
             <a href="{{ route('cart.view.get') }}" class="btn btn-primary btn-lg">
-                <i class="fa fa-shopping-cart"></i>
+                <div class="cart-icon"></div>
                 Cart
                 <span class="cart-count {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'cart-count-visible' : 'cart-count-hidden' }}">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
             </a>
         </noscript>
         <button type="button" class="btn btn-primary btn-lg" onclick="openCartModal()" style="display: none;">
-            <i class="fa fa-shopping-cart"></i>
+            <div class="cart-icon"></div>
             Cart
             <span class="cart-count" style="display: {{ is_array(session('cart')) && count(session('cart')) > 0 ? 'inline' : 'none' }};">{{ is_array(session('cart')) ? count(session('cart')) : 0 }}</span>
         </button>

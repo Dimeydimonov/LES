@@ -45,7 +45,7 @@
 								<input type="hidden" name="image" value="{{ asset($product->img ?? 'images/1.jpg') }}">
 								<input type="hidden" name="quantity" value="1">
 								<button type="submit" class="add-to-cart-btn">
-									<i class="fa fa-shopping-cart"></i>
+									<div class="cart-icon"></div>
 									Add to Cart
 								</button>
 							</form>

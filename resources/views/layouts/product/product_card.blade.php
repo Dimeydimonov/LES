@@ -34,7 +34,7 @@
 				<input type="hidden" name="old_price" value="{{ $product->old_price ?? '' }}">
 				<input type="hidden" name="image" value="{{ asset($product->img ?? 'images/1.jpg') }}">
 				<button type="submit" class="btn-add-to-cart">
-					<i class="fa fa-shopping-cart"></i>
+					<div class="cart-icon"></div>
 					Add to Cart
 				</button>
 			</form>

@@ -61,7 +61,7 @@
                 </div>
             @else
                 <div class="cart-empty">
-                    <i class="fa fa-shopping-cart"></i>
+                    <div class="cart-icon cart-icon-large"></div>
                     <h3>Your cart is empty</h3>
                     <p>Looks like you haven't added any products to your cart yet.</p>
                     <a href="{{ route('home') }}" class="btn btn-primary">Continue Shopping</a>
