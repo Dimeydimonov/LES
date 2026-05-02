@@ -1,61 +1,135 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LES - Grocery Store E-commerce Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
+LES is a modern grocery store e-commerce web application built with Laravel 12 and PHP 8.2, designed for online grocery shopping with a focus on user experience and performance.
 
-## About Laravel
+## Features
+- 🛒 **Shopping Cart**: Session-based cart management with AJAX updates
+- 📦 **Product Catalog**: Browse products by categories with search functionality
+- 🔥 **Hot Offers**: Special deals and discounted products section
+- 🌐 **Multi-language Support**: Internationalization support with language switcher
+- 📱 **Responsive Design**: Mobile-friendly interface with modal cart
+- 🎨 **Modern UI**: Clean design with Font Awesome icons and Open Sans font
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tech Stack
+- **Backend**: Laravel 12, PHP 8.2
+- **Database**: MySQL 8.0
+- **Frontend**: Plain CSS, JavaScript (no runtime CSS frameworks)
+- **Build Tool**: Vite
+- **Containerization**: Docker & Docker Compose
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Architecture
+- **Service Layer Pattern**: Business logic separated into services
+  - `ProductService`: Product listing, filtering, search
+  - `CartService`: Cart management operations
+- **Thin Controllers**: Controllers handle only request/response
+- **View Composers**: Shared data across all views
+- **Trait Usage**: `PaginationTrait` for reusable pagination logic
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+### Prerequisites
+- Docker & Docker Compose
+- Git
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Setup
+```bash
+# Clone the repository
+git clone [repository-url]
+cd LES
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Start Docker containers
+docker compose up -d
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Enter PHP container
+docker compose exec php-fpm bash
 
-## Laravel Sponsors
+# Install dependencies
+composer install
+npm install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-### Premium Partners
+# Run migrations
+php artisan migrate
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# Seed database (optional)
+php artisan db:seed
+```
+
+## Development
+
+### Commands
+```bash
+# Development server
+php artisan serve
+
+# Run tests
+php artisan test
+composer test
+
+# Code formatting
+php artisan pint
+
+# Build assets
+npm run dev    # Development with hot reload
+npm run build  # Production build
+
+# Run all development tools concurrently
+composer dev
+```
+
+### Docker Services
+- **nginx**: Web server (port 80)
+- **php-fpm**: PHP application (port 9000)
+- **mysql**: Database (port 3306)
+  - Credentials: test/test/test
+
+### Debugging
+Xdebug is configured and available on port 9003
+
+## Project Structure
+```
+├── app/
+│   ├── Http/Controllers/    # Thin controllers
+│   ├── Services/            # Business logic
+│   ├── Models/              # Eloquent models
+│   └── Traits/              # Reusable traits
+├── resources/
+│   ├── views/               # Blade templates
+│   ├── css/                 # Stylesheets
+│   └── js/                  # JavaScript files
+├── routes/
+│   ├── web.php              # Web routes
+│   └── ajax.php             # AJAX endpoints
+└── public/
+    ├── css/style.css        # Main stylesheet
+    └── js/                  # Static JS files
+```
+
+## Testing
+```bash
+# Run all tests
+php artisan test
+
+# Run specific test
+php artisan test --filter=TestName
+
+# Clear config and run tests
+composer test
+```
 
 ## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Create a feature branch
+2. Make your changes
+3. Run tests and ensure they pass
+4. Format code with `php artisan pint`
+5. Submit a pull request
 
 ## License
+This project is proprietary software.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Support
+For issues and questions, please contact the development team.
