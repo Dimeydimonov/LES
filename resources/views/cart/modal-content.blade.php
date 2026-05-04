@@ -7,7 +7,6 @@
 @else
 	<table class="cart-items">
 		<thead>
-		{{--            <tr class="cart-item">--}}
 		<th>Фото</th>
 		<th>Описание</th>
 		<th>Старая цена</th>

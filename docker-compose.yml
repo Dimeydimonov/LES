@@ -22,9 +22,10 @@ services:
       context: ./
       dockerfile: docker/php-fpm.docker
     user: "1000:1000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "9000:9000"
-      - "9003:9003"
     networks:
       - my_network
     environment:

@@ -29,3 +29,5 @@ Route::post('/cart/view', [CartController::class, 'viewFromCart'])->name('cart.v
 Route::get('/cart/view', [CartController::class, 'index'])->name('cart.view.get');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+

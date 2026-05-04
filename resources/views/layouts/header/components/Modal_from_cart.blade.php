@@ -14,7 +14,7 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-secondary" data-action="close-modal">Продолжить покупки  </button>
-            <button class="btn btn-primary">Оформить </button>
+            <a href="{{ route('cart.view.get') }}" class="btn btn-primary btn-lg">Оформить </a>
             <button class="btn btn-clear-cart" data-action="{{route('cart.clear')}}">Очистить корзину </button>
         </div>
     </div>

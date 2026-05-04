@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 // ОЧИСТКА ВСЕЙ КОРЗИНЫ
-// Отвечает: Удаление всех товаров одним кликом
+// Удаление всех товаров одним кликом
             document.addEventListener('click', function(e) {
                 if (e.target.classList.contains('btn-clear-cart')) {
                     e.preventDefault();
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
 
-// Чистая реализация AJAX
+//  AJAX
             fetch('/cart/remove', {
                 method: 'POST',
                 body: formData,
