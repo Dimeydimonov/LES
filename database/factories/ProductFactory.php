@@ -27,7 +27,7 @@ class ProductFactory extends Factory
 			'old_price' =>fake()->boolean(30)? $price *1.25 : null,
 			'description' =>    fake()->sentence(),
 			'keywords' => implode(',', fake()->words(5)),
-			'img' => 'products/no-image.png',
+			'img' => 'images/products/no-image.png',
 			'is_offer' => fake()->boolean(20),
         ];
     }
