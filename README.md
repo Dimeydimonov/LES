@@ -1,7 +1,7 @@
  LES   Grocery Store E commerce Platform
 
  Overview
-LES is a modern grocery store e commerce web application built with Laravel 12 and PHP 8.2, designed for online grocery shopping with a focus on user experience and performance.
+LES is a modern grocery store ecommerce web application built with Laravel 12 and PHP 8.2, designed for online grocery shopping with a focus on user experience and performance.
 
  Features
   Shopping Cart: Session based cart management with AJAX updates
