@@ -1,26 +1,20 @@
-<?php
+<?PHP
+namespace App\Http\Controllers;
 
-	namespace App\Http\Controllers;
+use App\Services\ProductService;
 
-	use App\Models\Product;
-	use http\Client\Curl\User;
+class ProductController extends Controller
+{
+public function __construct(
+private ProductService $productService
+) {}
 
-	class ProductController extends Controller
-	{
-		public function product()
-		{
-			$title = 'Products';
-			$categoryId = request('category');
-			$products = Product::with('category')
-				->when($categoryId, function ($query, $categoryId) {
-					return $query->where('category_id', $categoryId);
-				})
-				->when(!$categoryId, function ($query) {
-					return $query->where('old_price', '!=', 0);
-				})
-				->cursorPaginate(4);
+public function product()
+{
+$title = 'Products';
+$categoryId = request('category');
+$products = $this->productService->getProducts($categoryId);
 
-			return view('index', compact('title', 'products'));
-		}
-
-	}
+return view('index', compact('title', 'products'));
+}
+}
